@@ -8,4 +8,4 @@ sudo cpupower frequency-set -g performance
 dpkg-reconfigure -p high jackd
 dpkg-reconfigure -p high jackd2
 
-nice --15 jackd -R -P 90 -d alsa -d hw:M2,0 -r 48000 -p64 -n2
+nice --15 jackd -R -P 90 -d alsa -d hw:M2,0 -r 48000 -p64 -n2 &
