@@ -1,0 +1,26 @@
+#!/bin/bash
+# TODO: use sed, use GRUB_CMDLINE_LINUX and GRUB_CMDLINE_LINUX_DEFAULT
+#sudo sh -c 'echo "GRUB_CMDLINE_LINUX_DEFAULT=\"\$GRUB_CMDLINE_LINUX_DEFAULT preempt=full nohz=off mitigations=off usbcore.autosuspend=-1 nosmt threadirqs cpufreq.default_governor=performance\"" > /etc/default/grub.d/perf.cfg'
+sudo update-grub
+
+sudo sh -c 'echo "@audio          -       rtprio 99" >> /etc/security/limits.d/audio.conf'
+sudo sh -c 'echo "@audio          -       memlock unlimited" >> /etc/security/limits.d/audio.conf'
+sudo sh -c 'echo "@audio          -       nice -10" >> /etc/security/limits.d/audio.conf'
+# TODO: more like i8042 snd usb. Also set RTIRQ_PRIO_HIGH to 90
+sudo sh -c 'echo "RTIRQ_HIGH_LIST=\"timer snd-hrtimer snd usb\"" >> /etc/default/rtirq'
+
+dpkg-reconfigure -p high jackd
+dpkg-reconfigure -p high jackd2
+
+# TODO: download https://github.com/Ardour/ardour/blob/master/tools/udev/99-cpu-dma-latency.rules to /etc/udev/rules.d/
+# TODO https://github.com/jhernberg/udev-rtirq.git
+
+sudo udevadm control --reload-rules
+sudo udevadm trigger
+
+# TODO
+ #Setting the noatime parameter in your /etc/fstab file reduces the amount of disk IO (the inode access times are not updated each time a file is read) which could improve the overall performance of your system.
+#/dev/sdax / ext4 noatime,errors=remount-ro 0 1
+#Most modern distributions use either atime or relatime. See the mount manpage for more information on these parameters. 
+
+# TODO: https://codeberg.org/rtcqs/rtcqs, spectre, meltdown thingies...

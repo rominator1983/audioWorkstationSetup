@@ -1,0 +1,173 @@
+#!/bin/bash
+sudo apt-get update && sudo apt-get upgrade
+
+
+
+
+
+
+
+
+#- Verwendete plugins
+ #- TODO:
+ #-- rackarrack plugins??? welche sind das?
+ #--- Liste an Plugins über Regex-Suche in den carla-projects finden
+#- - switches um lautlos schalten zu können müssten auf patchstorage sein
+
+# TODO: Irgendwo alles safe ablegen NAM models, Reverbs etc.
+
+mkdicr ~/build
+cd ~/build
+
+sudo apt-get install jalv lilv-utils binutils automake autoconf libtool libreadline-dev xclip qsampler curl lingot python3-tk python3-pip python3-venv
+# TODO: https://github.com/geraldmwangi/GuitarMidi-LV2/releases
+
+# TODO: https://download.opensuse.org/repositories/home:/sfztools:/sfizz/xUbuntu_24.04/amd64/sfizz_1.2.3-0_amd64.deb
+# https://github.com/surge-synthesizer/releases-xt/releases/download/1.3.4/surge-xt-linux-x64-1.3.4.deb
+# https://tytel.org/static/dist/helm_0.9.0_amd64_r.deb
+# https://github.com/surge-synthesizer/monique-monosynth/releases/download/Nightly/MoniqueMonosynth-2024-08-07-df7d339-Linux.zip
+# drumlabooh
+# https://tal-software.com/downloads/plugins/TAL-Drum_64_linux.zip
+
+git clone https://github.com/rominator1983/noClipDrive.lv2.git
+git clone https://github.com/rominator1983/justOneOctaveUp.lv2.git
+git clone https://github.com/rominator1983/rectifyingOctave.lv2.git
+git clone https://github.com/rominator1983/splineDrive.lv2.git
+
+cd ~/build/noClipDrive.lv2
+./waf configure
+./waf build
+sudo ./waf install
+
+cd ~/build/justOneOctaveUp.lv2
+./waf configure
+./waf build
+sudo ./waf install
+
+cd ~/build/rectifyingOctave.lv2
+./waf configure
+./waf build
+sudo ./waf install
+
+cd ~/build/splineDrive.lv2
+./waf configure
+./waf build
+sudo ./waf install
+
+sudo cp -rf /usr/local/lib64/lv2/* /usr/lib/lv2/
+
+# caps
+cd ~/build
+git clone https://github.com/mod-audio/caps-lv2.git --recursive
+cd caps-lv2
+make
+
+# super capo/capo
+cd ~/build
+wget https://patchstorage.com/wp-content/uploads/2023/02/mod-supercapo-63ef7baba1cf0.lv2.tar.gz
+sudo tar -xzf mod-supercapo-63ef7baba1cf0.lv2.tar.gz -C /usr/lib/lv2
+wget https://patchstorage.com/wp-content/uploads/2023/02/mod-capo-63ef7afc11c25.lv2.tar.gz
+sudo tar -xzf mod-capo-63ef7afc11c25.lv2.tar.gz -C /usr/lib/lv2
+
+# freaktail => ablegen
+cd ~/build
+wget https://patchstorage.com/wp-content/uploads/2023/02/Prefreak-63ef74b300aab.lv2.tar.gz
+sudo tar -xzf Prefreak-63ef74b300aab.lv2.tar.gz -C /usr/lib/lv2
+wget https://patchstorage.com/wp-content/uploads/2023/02/Freaktail-63ef73be8a706.lv2.tar.gz
+sudo tar -xzf Freaktail-63ef73be8a706.lv2.tar.gz -C /usr/lib/lv2
+
+# Noise Gate => ablegen
+cd ~/build
+wget https://patchstorage.com/wp-content/uploads/2023/04/advanced-noisegate-6430e1b5e1241.lv2.tar.gz
+sudo tar -xzf advanced-noisegate-6430e1b5e1241.lv2.tar.gz -C /usr/lib/lv2
+
+# bollie => ablegen
+cd ~/build
+wget https://patchstorage.com/wp-content/uploads/2023/02/bolliedelay-63ef73a5b8a80.lv2.tar.gz
+sudo tar -xzf bolliedelay-63ef73a5b8a80.lv2.tar.gz -C /usr/lib/lv2
+
+wget https://islainstruments.com/files/plugins/bolliedelayxt.lv2.zip
+mkdir /home/roman/build/bolliedelayxt
+sudo apt-get install unzip
+sudo unzip bolliedelayxt.lv2.zip -d /home/roman/build/bolliedelayxt
+sudo cp -rf /home/roman/build/bolliedelayxt/bolliedelayxt.lv2 /usr/lib/lv2/
+
+# wolf shaper
+sudo apt-add-repository -y ppa:pdesaulniers/wolf
+sudo apt-get update
+sudo apt-get install wolf-shaper
+
+# ratatouille
+sudo apt-get install libsndfile1-dev libcairo2-dev libx11-dev lv2-dev libjack-jackd2-dev portaudio19-dev
+
+#mkdir ~/build
+#cd ~/build
+#git clone https://github.com/brummer10/Ratatouille.lv2.git --recursive
+#cd ~/build/Ratatouille.lv2/
+#make lv2
+#sudo make install
+
+# LSP
+sudo apt-get install lsp-plugins-lv2
+
+# tube driver
+#cd ~/build
+#git clone https://github.com/brummer10/GxBaJaTubeDriver.lv2.git --recursive
+#cd GxBaJaTubeDriver.lv2
+#sudo apt-get install libc6-dev libcairo2-dev libx11-dev x11proto-dev lv2-dev
+#make
+#sudo make install
+
+# infamous powercut => ablegen
+wget https://patchstorage.com/wp-content/uploads/2023/02/powercut-63ef74b06bbbb.lv2.tar.gz
+sudo tar -xzf powercut-63ef74b06bbbb.lv2.tar.gz -C /usr/lib/lv2
+# oder https://github.com/ssj71/infamousPlugins
+
+wget https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64
+
+# infamous
+#cd ~/build
+#git clone https://github.com/falkTX/ntk.git
+#sudo ln -s /usr/bin/python3 /usr/bin/python
+#cd ntk
+#./waf configure
+#./waf
+#sudo ./waf install
+# VERWENDET PYTHON 3.11 und hat ein Problem mit imp vs import-lib... => DOWNLOAD AS IS
+
+cd ~/build
+#sudo apt-get install cmake libcairo-dev lv2-dev zita-resampler libfftw3-dev libfltk1.3-dev libx11-dev libxft-dev codeblocks
+#git clone https://github.com/ssj71/infamousPlugins.git --recursive
+#cd ~/build/infamousPlugins
+
+# GxSlowGear
+
+sudo apt-get install libc6-dev libcairo2-dev libx11-dev x11proto-dev lv2-dev
+
+# all brummer
+sudo apt install libc6-dev libcairo2-dev libx11-dev x11proto-dev lv2-dev
+cd ~/build
+git clone https://github.com/brummer10/GxPlugins.lv2.git --recursive
+cd ~/build/GxPlugins.lv2
+git submodule init
+git submodule update
+make
+sudo make install
+
+# missing: cardinal
+
+#cd ~/build
+#git clone https://github.com/brummer10/GxSlowGear.lv2.git --recursive
+#cd ~/build/GxSlowGear.lv2/
+#make
+#sudo make install
+
+# tal => ablegen
+wget https://tal-software.com/downloads/plugins/TAL-Filter-2_64_linux.zip
+wget https://tal-software.com/downloads/plugins/TAL-Reverb-4_64_linux.zip
+wget https://tal-software.com/downloads/plugins/TAL-Chorus-LX_64_linux.zip
+wget https://tal-software.com/downloads/plugins/TAL-Vocoder-2_64_linux.zip
+wget https://tal-software.com/downloads/plugins/TAL-NoiseMaker_64_linux.zip
+
+
+
