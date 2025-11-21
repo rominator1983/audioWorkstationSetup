@@ -22,7 +22,7 @@ sudo audacity.fetch-models --batch
 mkdicr ~/build
 cd ~/build
 
-sudo apt-get install jalv lilv-utils binutils automake autoconf libtool libreadline-dev xclip qsampler curl lingot python3-tk python3-pip python3-venv
+sudo apt-get install jalv lilv-utils binutils automake autoconf libtool libreadline-dev xclip qsampler curl lingot python3-tk python3-pip python3-venv libsndfile1-dev
 # TODO: https://github.com/geraldmwangi/GuitarMidi-LV2/releases
 
 # TODO: https://download.opensuse.org/repositories/home:/sfztools:/sfizz/xUbuntu_24.04/amd64/sfizz_1.2.3-0_amd64.deb
