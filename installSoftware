@@ -32,6 +32,9 @@ sudo apt-get install jalv lilv-utils binutils automake autoconf libtool libreadl
 # drumlabooh
 # https://tal-software.com/downloads/plugins/TAL-Drum_64_linux.zip
 
+cd ~/build
+#curl -o waf https://waf.io/waf-2.0.27
+
 git clone https://github.com/rominator1983/noClipDrive.lv2.git
 git clone https://github.com/rominator1983/justOneOctaveUp.lv2.git
 git clone https://github.com/rominator1983/rectifyingOctave.lv2.git
