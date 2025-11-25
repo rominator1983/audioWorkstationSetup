@@ -1,36 +1,36 @@
 #!/bin/bash
 sudo apt-get update && sudo apt-get upgrade
 
-
-
-
-
 # TODO: https://github.com/DamRsn/NeuralNote/releases
 
 sudo snap install audacity
 sudo audacity.fetch-models --batch
 
-
 #- Verwendete plugins
  #- TODO:
  #-- rackarrack plugins??? welche sind das?
- #--- Liste an Plugins über Regex-Suche in den carla-projects finden
-#- - switches um lautlos schalten zu können müssten auf patchstorage sein
+ #- - switches um lautlos schalten zu können müssten auf patchstorage sein
 
 # TODO: Irgendwo alles safe ablegen NAM models, Reverbs etc.
 
 mkdicr ~/build
 cd ~/build
 
-sudo apt-get install jalv lilv-utils binutils automake autoconf libtool libreadline-dev xclip qsampler curl lingot python3-tk python3-pip python3-venv libsndfile1-dev unzip libcairo2-dev libx11-dev lv2-dev libjack-jackd2-dev portaudio19-dev lsp-plugins-lv2 libc6-dev x11proto-dev
+sudo apt-get install jalv lilv-utils binutils automake autoconf libtool libreadline-dev xclip qsampler curl lingot python3-tk python3-pip python3-venv libsndfile1-dev unzip libcairo2-dev libx11-dev lv2-dev libjack-jackd2-dev portaudio19-dev lsp-plugins-lv2 libc6-dev x11proto-dev liblilv-static
 # TODO: https://github.com/geraldmwangi/GuitarMidi-LV2/releases
 
-# TODO: https://download.opensuse.org/repositories/home:/sfztools:/sfizz/xUbuntu_24.04/amd64/sfizz_1.2.3-0_amd64.deb
-# https://github.com/surge-synthesizer/releases-xt/releases/download/1.3.4/surge-xt-linux-x64-1.3.4.deb
-# https://tytel.org/static/dist/helm_0.9.0_amd64_r.deb
-# https://github.com/surge-synthesizer/monique-monosynth/releases/download/Nightly/MoniqueMonosynth-2024-08-07-df7d339-Linux.zip
+wget https://download.opensuse.org/repositories/home:/sfztools:/sfizz/xUbuntu_24.04/amd64/sfizz_1.2.3-0_amd64.deb
+sudo dpkg -i sfizz_1.2.3-0_amd64.deb
+
+wget https://github.com/surge-synthesizer/releases-xt/releases/download/1.3.4/surge-xt-linux-x64-1.3.4.deb
+sudo dpkg -i surge-xt-linux-x64-1.3.4.deb
+
+wget https://tytel.org/static/dist/helm_0.9.0_amd64_r.deb
+sudo dpkg -i helm_0.9.0_amd64_r.deb
+
+https://github.com/surge-synthesizer/monique-monosynth/releases/download/Nightly/MoniqueMonosynth-2024-08-07-df7d339-Linux.zip
 # drumlabooh
-# https://tal-software.com/downloads/plugins/TAL-Drum_64_linux.zip
+https://tal-software.com/downloads/plugins/TAL-Drum_64_linux.zip
 
 cd ~/build
 #curl -o waf https://waf.io/waf-2.0.27
@@ -143,8 +143,6 @@ cd ~/build
 #git clone https://github.com/ssj71/infamousPlugins.git --recursive
 #cd ~/build/infamousPlugins
 
-# GxSlowGear
-
 # all brummer
 cd ~/build
 git clone https://github.com/brummer10/GxPlugins.lv2.git --recursive
@@ -156,22 +154,30 @@ sudo make install
 
 # missing: cardinal
 
-#cd ~/build
-#git clone https://github.com/brummer10/GxSlowGear.lv2.git --recursive
-#cd ~/build/GxSlowGear.lv2/
-#make
-#sudo make install
-
-# TODO: tal => ablegen, script fertig machen
+# TODO: ablegen
 wget https://tal-software.com/downloads/plugins/TAL-Filter-2_64_linux.zip
-sudo unzip bolliedelayxt.lv2.zip -d /home/roman/build/bolliedelayxt
-sudo cp -rf /home/roman/build/bolliedelayxt/bolliedelayxt.lv2 /usr/lib/lv2/
-
+sudo unzip TAL-Filter-2_64_linux.zip -d /home/roman/build/TAL-Filter
+sudo cp -rf /home/roman/build/TAL-Filter/TAL-Filter-2/TAL-Filter-2.vst3/ /usr/lib/vst3/
 
 wget https://tal-software.com/downloads/plugins/TAL-Reverb-4_64_linux.zip
+sudo unzip TAL-Reverb-4_64_linux.zip -d /home/roman/build/TAL-Reverb
+sudo cp -rf /home/roman/build/TAL-Reverb/TAL-Reverb-4/TAL-Reverb-4.vst3/ /usr/lib/vst3/
+
 wget https://tal-software.com/downloads/plugins/TAL-Chorus-LX_64_linux.zip
+sudo unzip TAL-Chorus-LX_64_linux.zip -d /home/roman/build/TAL-Chorus
+sudo cp -rf /home/roman/build/TAL-Chorus/TAL-Chorus-LX/TAL-Chorus-LX.vst3/ /usr/lib/vst3/
+
 wget https://tal-software.com/downloads/plugins/TAL-Vocoder-2_64_linux.zip
+sudo unzip TAL-Vocoder-2_64_linux.zip -d /home/roman/build/TAL-Vocoder
+sudo cp -rf /home/roman/build/TAL-Vocoder/TAL-Vocoder-2/TAL-Vocoder-2.vst3/ /usr/lib/vst3/
+
 wget https://tal-software.com/downloads/plugins/TAL-NoiseMaker_64_linux.zip
+sudo unzip TAL-NoiseMaker_64_linux.zip -d /home/roman/build/TAL-NoiseMaker
+sudo cp -rf /home/roman/build/TAL-NoiseMaker/TAL-NoiseMaker/TAL-NoiseMaker.vst3/ /usr/lib/vst3/
+
+wget https://tal-software.com/downloads/plugins/TAL-Drum_64_linux.zip
+sudo unzip TAL-Drum_64_linux.zip -d /home/roman/build/TAL-Drum
+sudo cp -rf /home/roman/build/TAL-Drum/TAL-Drum/TAL-Drum.vst3/ /usr/lib/vst3/
 
 
 
