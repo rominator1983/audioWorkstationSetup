@@ -1,11 +1,9 @@
 #!/bin/bash
-sudo apt-get update && sudo apt-get upgrade
 
 #- TODO:
 #-- rackarrack plugins??? welche sind das?
 #- - switches um lautlos schalten zu können müssten auf patchstorage sein
 # TODO: Irgendwo alles safe ablegen NAM models, Reverbs etc.
-# missing: cardinal
 
 sudo snap install audacity
 sudo audacity.fetch-models --batch
@@ -13,7 +11,15 @@ sudo audacity.fetch-models --batch
 mkdicr ~/build
 cd ~/build
 
-sudo apt-get install jalv lilv-utils binutils automake autoconf libtool libreadline-dev xclip qsampler curl lingot python3-tk python3-pip python3-venv libsndfile1-dev unzip libcairo2-dev libx11-dev lv2-dev libjack-jackd2-dev portaudio19-dev lsp-plugins-lv2 libc6-dev x11proto-dev liblilv-static infamous-plugins
+sudo apt-add-repository -y ppa:pdesaulniers/wolf
+sudo apt-get update && sudo apt-get upgrade
+
+wget https://launchpad.net/~kxstudio-debian/+archive/kxstudio/+files/kxstudio-repos_11.2.0_all.deb
+sudo dpkg -i kxstudio-repos_11.2.0_all.deb
+
+sudo apt-get update && sudo apt-get upgrade
+
+sudo apt-get install jalv lilv-utils binutils automake autoconf libtool libreadline-dev xclip qsampler curl lingot python3-tk python3-pip python3-venv libsndfile1-dev unzip libcairo2-dev libx11-dev lv2-dev libjack-jackd2-dev portaudio19-dev lsp-plugins-lv2 libc6-dev x11proto-dev liblilv-static infamous-plugins cardinal cardinal-vst3 wolf-shaper
 
 wget https://github.com/DamRsn/NeuralNote/releases/download/v1.1.0/NeuralNote_VST3_Linux.zip
 sudo unzip NeuralNote_VST3_Linux.zip -d ~/build/NeuralNote
@@ -93,11 +99,6 @@ wget https://islainstruments.com/files/plugins/bolliedelayxt.lv2.zip
 mkdir ~/build/bolliedelayxt
 sudo unzip bolliedelayxt.lv2.zip -d ~/build/bolliedelayxt
 sudo cp -rf ~/build/bolliedelayxt/bolliedelayxt.lv2 /usr/lib/lv2/
-
-# wolf shaper
-sudo apt-add-repository -y ppa:pdesaulniers/wolf
-sudo apt-get update
-sudo apt-get install wolf-shaper
 
 # ratatouille
 
