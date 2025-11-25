@@ -22,7 +22,7 @@ sudo audacity.fetch-models --batch
 mkdicr ~/build
 cd ~/build
 
-sudo apt-get install jalv lilv-utils binutils automake autoconf libtool libreadline-dev xclip qsampler curl lingot python3-tk python3-pip python3-venv libsndfile1-dev
+sudo apt-get install jalv lilv-utils binutils automake autoconf libtool libreadline-dev xclip qsampler curl lingot python3-tk python3-pip python3-venv libsndfile1-dev unzip libcairo2-dev libx11-dev lv2-dev libjack-jackd2-dev portaudio19-dev lsp-plugins-lv2 libc6-dev x11proto-dev
 # TODO: https://github.com/geraldmwangi/GuitarMidi-LV2/releases
 
 # TODO: https://download.opensuse.org/repositories/home:/sfztools:/sfizz/xUbuntu_24.04/amd64/sfizz_1.2.3-0_amd64.deb
@@ -94,7 +94,6 @@ sudo tar -xzf bolliedelay-63ef73a5b8a80.lv2.tar.gz -C /usr/lib/lv2
 
 wget https://islainstruments.com/files/plugins/bolliedelayxt.lv2.zip
 mkdir /home/roman/build/bolliedelayxt
-sudo apt-get install unzip
 sudo unzip bolliedelayxt.lv2.zip -d /home/roman/build/bolliedelayxt
 sudo cp -rf /home/roman/build/bolliedelayxt/bolliedelayxt.lv2 /usr/lib/lv2/
 
@@ -104,23 +103,21 @@ sudo apt-get update
 sudo apt-get install wolf-shaper
 
 # ratatouille
-sudo apt-get install libsndfile1-dev libcairo2-dev libx11-dev lv2-dev libjack-jackd2-dev portaudio19-dev
 
 #mkdir ~/build
-#cd ~/build
-#git clone https://github.com/brummer10/Ratatouille.lv2.git --recursive
-#cd ~/build/Ratatouille.lv2/
-#make lv2
-#sudo make install
+cd ~/build
+git clone https://github.com/brummer10/Ratatouille.lv2.git --recursive
+cd ~/build/Ratatouille.lv2/
+make lv2
+make vst
+sudo make install
 
 # LSP
-sudo apt-get install lsp-plugins-lv2
 
 # tube driver
 #cd ~/build
 #git clone https://github.com/brummer10/GxBaJaTubeDriver.lv2.git --recursive
 #cd GxBaJaTubeDriver.lv2
-#sudo apt-get install libc6-dev libcairo2-dev libx11-dev x11proto-dev lv2-dev
 #make
 #sudo make install
 
@@ -148,10 +145,7 @@ cd ~/build
 
 # GxSlowGear
 
-sudo apt-get install libc6-dev libcairo2-dev libx11-dev x11proto-dev lv2-dev
-
 # all brummer
-sudo apt install libc6-dev libcairo2-dev libx11-dev x11proto-dev lv2-dev
 cd ~/build
 git clone https://github.com/brummer10/GxPlugins.lv2.git --recursive
 cd ~/build/GxPlugins.lv2
@@ -168,8 +162,12 @@ sudo make install
 #make
 #sudo make install
 
-# tal => ablegen
+# TODO: tal => ablegen, script fertig machen
 wget https://tal-software.com/downloads/plugins/TAL-Filter-2_64_linux.zip
+sudo unzip bolliedelayxt.lv2.zip -d /home/roman/build/bolliedelayxt
+sudo cp -rf /home/roman/build/bolliedelayxt/bolliedelayxt.lv2 /usr/lib/lv2/
+
+
 wget https://tal-software.com/downloads/plugins/TAL-Reverb-4_64_linux.zip
 wget https://tal-software.com/downloads/plugins/TAL-Chorus-LX_64_linux.zip
 wget https://tal-software.com/downloads/plugins/TAL-Vocoder-2_64_linux.zip
