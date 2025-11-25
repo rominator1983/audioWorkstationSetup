@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #- TODO:
-#-- rackarrack plugins??? welche sind das?
+#-- rackarrack plugins??? welche sind das? https://github.com/ssj71/rkrlv2 compiled nicht
 #- - switches um lautlos schalten zu können müssten auf patchstorage sein
 # TODO: Irgendwo alles safe ablegen NAM models, Reverbs etc.
 
