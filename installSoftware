@@ -1,12 +1,10 @@
 #!/bin/bash
 sudo apt-get update && sudo apt-get upgrade
 
-# TODO: https://github.com/DamRsn/NeuralNote/releases
 #- TODO:
 #-- rackarrack plugins??? welche sind das?
 #- - switches um lautlos schalten zu können müssten auf patchstorage sein
 # TODO: Irgendwo alles safe ablegen NAM models, Reverbs etc.
-# TODO: https://github.com/geraldmwangi/GuitarMidi-LV2/releases
 # missing: cardinal
 
 sudo snap install audacity
@@ -16,6 +14,13 @@ mkdicr ~/build
 cd ~/build
 
 sudo apt-get install jalv lilv-utils binutils automake autoconf libtool libreadline-dev xclip qsampler curl lingot python3-tk python3-pip python3-venv libsndfile1-dev unzip libcairo2-dev libx11-dev lv2-dev libjack-jackd2-dev portaudio19-dev lsp-plugins-lv2 libc6-dev x11proto-dev liblilv-static infamous-plugins
+
+wget https://github.com/DamRsn/NeuralNote/releases/download/v1.1.0/NeuralNote_VST3_Linux.zip
+sudo unzip NeuralNote_VST3_Linux.zip -d ~/build/NeuralNote
+sudo cp -rf /home/roman/build/NeuralNote/NeuralNote.vst3/ /usr/lib/vst3/
+
+wget https://github.com/geraldmwangi/GuitarMidi-LV2/releases/download/v1.6/guitarmidi-lv2_1.6.1_amd64.deb
+sudo dpkg -i guitarmidi-lv2_1.6.1_amd64.deb
 
 wget https://download.opensuse.org/repositories/home:/sfztools:/sfizz/xUbuntu_24.04/amd64/sfizz_1.2.3-0_amd64.deb
 sudo dpkg -i sfizz_1.2.3-0_amd64.deb
@@ -27,7 +32,7 @@ wget https://tytel.org/static/dist/helm_0.9.0_amd64_r.deb
 sudo dpkg -i helm_0.9.0_amd64_r.deb
 
 https://github.com/surge-synthesizer/monique-monosynth/releases/download/Nightly/MoniqueMonosynth-2024-08-07-df7d339-Linux.zip
-sudo unzip MoniqueMonosynth-2024-08-07-df7d339-Linux -d ~/build/MoniqueMonosynth
+sudo unzip MoniqueMonosynth-2024-08-07-df7d339-Linux.zip -d ~/build/MoniqueMonosynth
 sudo cp -rf ~/build/MoniqueMonosynth/monique_products/MoniqueMonosynth.vst3/ /usr/lib/vst3/
 
 cd ~/build
