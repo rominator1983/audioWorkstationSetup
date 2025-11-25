@@ -2,22 +2,21 @@
 sudo apt-get update && sudo apt-get upgrade
 
 # TODO: https://github.com/DamRsn/NeuralNote/releases
+#- TODO:
+#-- rackarrack plugins??? welche sind das?
+#- - switches um lautlos schalten zu können müssten auf patchstorage sein
+# TODO: Irgendwo alles safe ablegen NAM models, Reverbs etc.
+# TODO: roman durch ~ ersetzen
+# TODO: https://github.com/geraldmwangi/GuitarMidi-LV2/releases
+# missing: cardinal
 
 sudo snap install audacity
 sudo audacity.fetch-models --batch
 
-#- Verwendete plugins
- #- TODO:
- #-- rackarrack plugins??? welche sind das?
- #- - switches um lautlos schalten zu können müssten auf patchstorage sein
-
-# TODO: Irgendwo alles safe ablegen NAM models, Reverbs etc.
-
 mkdicr ~/build
 cd ~/build
 
-sudo apt-get install jalv lilv-utils binutils automake autoconf libtool libreadline-dev xclip qsampler curl lingot python3-tk python3-pip python3-venv libsndfile1-dev unzip libcairo2-dev libx11-dev lv2-dev libjack-jackd2-dev portaudio19-dev lsp-plugins-lv2 libc6-dev x11proto-dev liblilv-static
-# TODO: https://github.com/geraldmwangi/GuitarMidi-LV2/releases
+sudo apt-get install jalv lilv-utils binutils automake autoconf libtool libreadline-dev xclip qsampler curl lingot python3-tk python3-pip python3-venv libsndfile1-dev unzip libcairo2-dev libx11-dev lv2-dev libjack-jackd2-dev portaudio19-dev lsp-plugins-lv2 libc6-dev x11proto-dev liblilv-static infamous-plugins
 
 wget https://download.opensuse.org/repositories/home:/sfztools:/sfizz/xUbuntu_24.04/amd64/sfizz_1.2.3-0_amd64.deb
 sudo dpkg -i sfizz_1.2.3-0_amd64.deb
@@ -29,11 +28,10 @@ wget https://tytel.org/static/dist/helm_0.9.0_amd64_r.deb
 sudo dpkg -i helm_0.9.0_amd64_r.deb
 
 https://github.com/surge-synthesizer/monique-monosynth/releases/download/Nightly/MoniqueMonosynth-2024-08-07-df7d339-Linux.zip
-# drumlabooh
-https://tal-software.com/downloads/plugins/TAL-Drum_64_linux.zip
+sudo unzip MoniqueMonosynth-2024-08-07-df7d339-Linux -d /home/roman/build/MoniqueMonosynth
+sudo cp -rf /home/roman/build/MoniqueMonosynth/monique_products/MoniqueMonosynth.vst3/ /usr/lib/vst3/
 
 cd ~/build
-#curl -o waf https://waf.io/waf-2.0.27
 
 git clone https://github.com/rominator1983/noClipDrive.lv2.git
 git clone https://github.com/rominator1983/justOneOctaveUp.lv2.git
@@ -62,16 +60,11 @@ sudo ./waf install
 
 sudo cp -rf /usr/local/lib64/lv2/* /usr/lib/lv2/
 
-# caps
-cd ~/build
-git clone https://github.com/mod-audio/caps-lv2.git --recursive
-cd caps-lv2
-make
-
 # super capo/capo
 cd ~/build
 wget https://patchstorage.com/wp-content/uploads/2023/02/mod-supercapo-63ef7baba1cf0.lv2.tar.gz
 sudo tar -xzf mod-supercapo-63ef7baba1cf0.lv2.tar.gz -C /usr/lib/lv2
+
 wget https://patchstorage.com/wp-content/uploads/2023/02/mod-capo-63ef7afc11c25.lv2.tar.gz
 sudo tar -xzf mod-capo-63ef7afc11c25.lv2.tar.gz -C /usr/lib/lv2
 
@@ -109,39 +102,18 @@ cd ~/build
 git clone https://github.com/brummer10/Ratatouille.lv2.git --recursive
 cd ~/build/Ratatouille.lv2/
 make lv2
-make vst
+make vst2
 sudo make install
 
 # LSP
-
-# tube driver
-#cd ~/build
-#git clone https://github.com/brummer10/GxBaJaTubeDriver.lv2.git --recursive
-#cd GxBaJaTubeDriver.lv2
-#make
-#sudo make install
 
 # infamous powercut => ablegen
 wget https://patchstorage.com/wp-content/uploads/2023/02/powercut-63ef74b06bbbb.lv2.tar.gz
 sudo tar -xzf powercut-63ef74b06bbbb.lv2.tar.gz -C /usr/lib/lv2
 # oder https://github.com/ssj71/infamousPlugins
 
-wget https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64
-
-# infamous
-#cd ~/build
-#git clone https://github.com/falkTX/ntk.git
-#sudo ln -s /usr/bin/python3 /usr/bin/python
-#cd ntk
-#./waf configure
-#./waf
-#sudo ./waf install
-# VERWENDET PYTHON 3.11 und hat ein Problem mit imp vs import-lib... => DOWNLOAD AS IS
-
-cd ~/build
-#sudo apt-get install cmake libcairo-dev lv2-dev zita-resampler libfftw3-dev libfltk1.3-dev libx11-dev libxft-dev codeblocks
-#git clone https://github.com/ssj71/infamousPlugins.git --recursive
-#cd ~/build/infamousPlugins
+# VS code
+# wget https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64
 
 # all brummer
 cd ~/build
@@ -152,9 +124,8 @@ git submodule update
 make
 sudo make install
 
-# missing: cardinal
 
-# TODO: ablegen
+
 wget https://tal-software.com/downloads/plugins/TAL-Filter-2_64_linux.zip
 sudo unzip TAL-Filter-2_64_linux.zip -d /home/roman/build/TAL-Filter
 sudo cp -rf /home/roman/build/TAL-Filter/TAL-Filter-2/TAL-Filter-2.vst3/ /usr/lib/vst3/
