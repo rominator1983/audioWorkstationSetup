@@ -102,13 +102,25 @@ sudo cp -rf ~/build/bolliedelayxt/bolliedelayxt.lv2 /usr/lib/lv2/
 
 # ratatouille
 
-#mkdir ~/build
 cd ~/build
 git clone https://github.com/brummer10/Ratatouille.lv2.git --recursive
 cd ~/build/Ratatouille.lv2/
 make lv2
 make vst2
 sudo make install
+
+cd ~/build
+git clone https://github.com/ssj71/rkrlv2.git --recursive
+cd ~/build/rkrlv2/
+mkdir build
+cd build
+cmake ..
+# TODO: now adapt.
+#   add -I/usr/include/lv2/core to ~/build/rkrlv2/build/lv2/CMakeFiles/rkrlv2.dir/flags.make
+#   change <lv2/lv2plug.in/ns/ext/ to <lv2/ in ~/build/rkrlv2/lv2/rkrlv2.C
+make
+sudo make install
+
 
 # VS code
 # wget https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64
