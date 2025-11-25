@@ -6,7 +6,6 @@ sudo apt-get update && sudo apt-get upgrade
 #-- rackarrack plugins??? welche sind das?
 #- - switches um lautlos schalten zu können müssten auf patchstorage sein
 # TODO: Irgendwo alles safe ablegen NAM models, Reverbs etc.
-# TODO: roman durch ~ ersetzen
 # TODO: https://github.com/geraldmwangi/GuitarMidi-LV2/releases
 # missing: cardinal
 
@@ -28,8 +27,8 @@ wget https://tytel.org/static/dist/helm_0.9.0_amd64_r.deb
 sudo dpkg -i helm_0.9.0_amd64_r.deb
 
 https://github.com/surge-synthesizer/monique-monosynth/releases/download/Nightly/MoniqueMonosynth-2024-08-07-df7d339-Linux.zip
-sudo unzip MoniqueMonosynth-2024-08-07-df7d339-Linux -d /home/roman/build/MoniqueMonosynth
-sudo cp -rf /home/roman/build/MoniqueMonosynth/monique_products/MoniqueMonosynth.vst3/ /usr/lib/vst3/
+sudo unzip MoniqueMonosynth-2024-08-07-df7d339-Linux -d ~/build/MoniqueMonosynth
+sudo cp -rf ~/build/MoniqueMonosynth/monique_products/MoniqueMonosynth.vst3/ /usr/lib/vst3/
 
 cd ~/build
 
@@ -86,9 +85,9 @@ wget https://patchstorage.com/wp-content/uploads/2023/02/bolliedelay-63ef73a5b8a
 sudo tar -xzf bolliedelay-63ef73a5b8a80.lv2.tar.gz -C /usr/lib/lv2
 
 wget https://islainstruments.com/files/plugins/bolliedelayxt.lv2.zip
-mkdir /home/roman/build/bolliedelayxt
-sudo unzip bolliedelayxt.lv2.zip -d /home/roman/build/bolliedelayxt
-sudo cp -rf /home/roman/build/bolliedelayxt/bolliedelayxt.lv2 /usr/lib/lv2/
+mkdir ~/build/bolliedelayxt
+sudo unzip bolliedelayxt.lv2.zip -d ~/build/bolliedelayxt
+sudo cp -rf ~/build/bolliedelayxt/bolliedelayxt.lv2 /usr/lib/lv2/
 
 # wolf shaper
 sudo apt-add-repository -y ppa:pdesaulniers/wolf
@@ -105,13 +104,6 @@ make lv2
 make vst2
 sudo make install
 
-# LSP
-
-# infamous powercut => ablegen
-wget https://patchstorage.com/wp-content/uploads/2023/02/powercut-63ef74b06bbbb.lv2.tar.gz
-sudo tar -xzf powercut-63ef74b06bbbb.lv2.tar.gz -C /usr/lib/lv2
-# oder https://github.com/ssj71/infamousPlugins
-
 # VS code
 # wget https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64
 
@@ -124,31 +116,27 @@ git submodule update
 make
 sudo make install
 
-
-
+# TAL
 wget https://tal-software.com/downloads/plugins/TAL-Filter-2_64_linux.zip
-sudo unzip TAL-Filter-2_64_linux.zip -d /home/roman/build/TAL-Filter
-sudo cp -rf /home/roman/build/TAL-Filter/TAL-Filter-2/TAL-Filter-2.vst3/ /usr/lib/vst3/
+sudo unzip TAL-Filter-2_64_linux.zip -d ~/build/TAL-Filter
+sudo cp -rf ~/build/TAL-Filter/TAL-Filter-2/TAL-Filter-2.vst3/ /usr/lib/vst3/
 
 wget https://tal-software.com/downloads/plugins/TAL-Reverb-4_64_linux.zip
-sudo unzip TAL-Reverb-4_64_linux.zip -d /home/roman/build/TAL-Reverb
-sudo cp -rf /home/roman/build/TAL-Reverb/TAL-Reverb-4/TAL-Reverb-4.vst3/ /usr/lib/vst3/
+sudo unzip TAL-Reverb-4_64_linux.zip -d ~/build/TAL-Reverb
+sudo cp -rf ~/build/TAL-Reverb/TAL-Reverb-4/TAL-Reverb-4.vst3/ /usr/lib/vst3/
 
 wget https://tal-software.com/downloads/plugins/TAL-Chorus-LX_64_linux.zip
-sudo unzip TAL-Chorus-LX_64_linux.zip -d /home/roman/build/TAL-Chorus
-sudo cp -rf /home/roman/build/TAL-Chorus/TAL-Chorus-LX/TAL-Chorus-LX.vst3/ /usr/lib/vst3/
+sudo unzip TAL-Chorus-LX_64_linux.zip -d ~/build/TAL-Chorus
+sudo cp -rf ~/build/TAL-Chorus/TAL-Chorus-LX/TAL-Chorus-LX.vst3/ /usr/lib/vst3/
 
 wget https://tal-software.com/downloads/plugins/TAL-Vocoder-2_64_linux.zip
-sudo unzip TAL-Vocoder-2_64_linux.zip -d /home/roman/build/TAL-Vocoder
-sudo cp -rf /home/roman/build/TAL-Vocoder/TAL-Vocoder-2/TAL-Vocoder-2.vst3/ /usr/lib/vst3/
+sudo unzip TAL-Vocoder-2_64_linux.zip -d ~/build/TAL-Vocoder
+sudo cp -rf ~/build/TAL-Vocoder/TAL-Vocoder-2/TAL-Vocoder-2.vst3/ /usr/lib/vst3/
 
 wget https://tal-software.com/downloads/plugins/TAL-NoiseMaker_64_linux.zip
-sudo unzip TAL-NoiseMaker_64_linux.zip -d /home/roman/build/TAL-NoiseMaker
-sudo cp -rf /home/roman/build/TAL-NoiseMaker/TAL-NoiseMaker/TAL-NoiseMaker.vst3/ /usr/lib/vst3/
+sudo unzip TAL-NoiseMaker_64_linux.zip -d ~/build/TAL-NoiseMaker
+sudo cp -rf ~/build/TAL-NoiseMaker/TAL-NoiseMaker/TAL-NoiseMaker.vst3/ /usr/lib/vst3/
 
 wget https://tal-software.com/downloads/plugins/TAL-Drum_64_linux.zip
-sudo unzip TAL-Drum_64_linux.zip -d /home/roman/build/TAL-Drum
-sudo cp -rf /home/roman/build/TAL-Drum/TAL-Drum/TAL-Drum.vst3/ /usr/lib/vst3/
-
-
-
+sudo unzip TAL-Drum_64_linux.zip -d ~/build/TAL-Drum
+sudo cp -rf ~/build/TAL-Drum/TAL-Drum/TAL-Drum.vst3/ /usr/lib/vst3/
