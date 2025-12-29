@@ -19,7 +19,7 @@ sudo dpkg -i kxstudio-repos_11.2.0_all.deb
 
 sudo apt-get update && sudo apt-get upgrade
 
-sudo apt-get install jalv lilv-utils binutils automake autoconf libtool libreadline-dev xclip qsampler curl lingot python3-tk python3-pip python3-venv libsndfile1-dev unzip libcairo2-dev libx11-dev lv2-dev libjack-jackd2-dev portaudio19-dev lsp-plugins-lv2 libc6-dev x11proto-dev liblilv-static infamous-plugins cardinal cardinal-vst3 wolf-shaper
+sudo apt-get install jalv lilv-utils binutils automake autoconf libtool libreadline-dev xclip qsampler curl lingot python3-tk python3-pip python3-venv libsndfile1-dev unzip libcairo2-dev libx11-dev lv2-dev libjack-jackd2-dev portaudio19-dev lsp-plugins-lv2 libc6-dev x11proto-dev liblilv-static infamous-plugins cardinal cardinal-vst3 wolf-shaper surge-xt
 
 wget https://github.com/DamRsn/NeuralNote/releases/download/v1.1.0/NeuralNote_VST3_Linux.zip
 sudo unzip NeuralNote_VST3_Linux.zip -d ~/build/NeuralNote
@@ -30,9 +30,6 @@ sudo dpkg -i guitarmidi-lv2_1.6.1_amd64.deb
 
 wget https://download.opensuse.org/repositories/home:/sfztools:/sfizz/xUbuntu_24.04/amd64/sfizz_1.2.3-0_amd64.deb
 sudo dpkg -i sfizz_1.2.3-0_amd64.deb
-
-wget https://github.com/surge-synthesizer/releases-xt/releases/download/1.3.4/surge-xt-linux-x64-1.3.4.deb
-sudo dpkg -i surge-xt-linux-x64-1.3.4.deb
 
 wget https://tytel.org/static/dist/helm_0.9.0_amd64_r.deb
 sudo dpkg -i helm_0.9.0_amd64_r.deb
