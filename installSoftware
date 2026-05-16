@@ -19,7 +19,7 @@ sudo dpkg -i kxstudio-repos_11.2.0_all.deb
 
 sudo apt-get update && sudo apt-get upgrade
 
-sudo apt-get install jalv lilv-utils binutils automake autoconf libtool libreadline-dev xclip qsampler curl lingot python3-tk python3-pip python3-venv libsndfile1-dev unzip libcairo2-dev libx11-dev lv2-dev libjack-jackd2-dev portaudio19-dev lsp-plugins-lv2 libc6-dev x11proto-dev liblilv-static infamous-plugins cardinal cardinal-vst3 wolf-shaper surge-xt helm sfizz guitarix-lv2 libcatch2-dev catch2 libasio-dev
+sudo apt-get install jalv lilv-utils binutils automake autoconf libtool libreadline-dev xclip qsampler curl lingot python3-tk python3-pip python3-venv libsndfile1-dev unzip libcairo2-dev libx11-dev lv2-dev libjack-jackd2-dev portaudio19-dev lsp-plugins-lv2 libc6-dev x11proto-dev liblilv-static infamous-plugins cardinal cardinal-vst3 wolf-shaper surge-xt helm sfizz guitarix-lv2
 
 wget https://github.com/DamRsn/NeuralNote/releases/download/v1.1.0/NeuralNote_VST3_Linux.zip
 sudo unzip NeuralNote_VST3_Linux.zip -d ~/build/NeuralNote
@@ -33,13 +33,6 @@ sudo unzip MoniqueMonosynth-2024-08-07-df7d339-Linux.zip -d ~/build/MoniqueMonos
 sudo cp -rf ~/build/MoniqueMonosynth/monique_products/MoniqueMonosynth.vst3/ /usr/lib/vst3/
 
 cd ~/build
-
-git clone https://github.com/corvusoft/restbed.git
-cd restbed
-mkdir build
-cd build
-cmake [-DBUILD_SSL=NO] [-DBUILD_TESTS=NO] ..
-make install
 
 git clone https://github.com/rominator1983/noClipDrive.lv2.git
 git clone https://github.com/rominator1983/justOneOctaveUp.lv2.git
