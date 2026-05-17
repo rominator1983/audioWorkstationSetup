@@ -101,6 +101,11 @@ make lv2
 make vst2
 sudo make install
 
+git clone https://github.com/brummer10/Staircase.git --recurse-submodules
+cd Staircase
+make
+make install
+
 cd ~/build
 git clone https://github.com/ssj71/rkrlv2.git --recursive
 cd ~/build/rkrlv2/
