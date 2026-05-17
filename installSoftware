@@ -19,7 +19,7 @@ sudo dpkg -i kxstudio-repos_11.2.0_all.deb
 
 sudo apt-get update && sudo apt-get upgrade
 
-sudo apt-get install jalv lilv-utils binutils automake autoconf libtool libreadline-dev xclip qsampler curl lingot python3-tk python3-pip python3-venv libsndfile1-dev unzip libcairo2-dev libx11-dev lv2-dev libjack-jackd2-dev portaudio19-dev lsp-plugins-lv2 libc6-dev x11proto-dev liblilv-static infamous-plugins cardinal cardinal-vst3 wolf-shaper surge-xt helm sfizz guitarix-lv2
+sudo apt-get install jalv lilv-utils binutils automake autoconf libtool libreadline-dev xclip qsampler curl lingot python3-tk python3-pip python3-venv libsndfile1-dev unzip libcairo2-dev libx11-dev lv2-dev libjack-jackd2-dev portaudio19-dev lsp-plugins-lv2 libc6-dev x11proto-dev liblilv-static infamous-plugins cardinal cardinal-vst3 wolf-shaper surge-xt helm sfizz guitarix-lv2 dotnet-sdk-10.0
 
 wget https://github.com/DamRsn/NeuralNote/releases/download/v1.1.0/NeuralNote_VST3_Linux.zip
 sudo unzip NeuralNote_VST3_Linux.zip -d ~/build/NeuralNote
@@ -34,6 +34,7 @@ sudo cp -rf ~/build/MoniqueMonosynth/monique_products/MoniqueMonosynth.vst3/ /us
 
 cd ~/build
 
+git clone https://github.com/rominator1983/carlaController.git
 git clone https://github.com/rominator1983/noClipDrive.lv2.git
 git clone https://github.com/rominator1983/justOneOctaveUp.lv2.git
 git clone https://github.com/rominator1983/rectifyingOctave.lv2.git
