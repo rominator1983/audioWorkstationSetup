@@ -1,7 +1,6 @@
 #!/bin/bash
 
 #- TODO:
-#-- rackarrack plugins??? welche sind das? https://github.com/ssj71/rkrlv2 compiled nicht
 #- - switches um lautlos schalten zu können müssten auf patchstorage sein
 # TODO: Irgendwo alles safe ablegen NAM models, Reverbs etc.
 
@@ -9,13 +8,9 @@
 sudo snap install audacity
 sudo audacity.fetch-models --batch
 
-sudo snap install code
-
 mkdir ~/build
 cd ~/build
 
-# TODO: not working on resolute at the moment
-sudo apt-add-repository -y ppa:pdesaulniers/wolf
 sudo apt-get update && sudo apt-get upgrade
 
 wget https://launchpad.net/~kxstudio-debian/+archive/kxstudio/+files/kxstudio-repos_11.2.0_all.deb
@@ -26,7 +21,13 @@ sudo apt-get update && sudo apt-get upgrade
 sudo apt-get install jalv lilv-utils binutils automake autoconf libtool libreadline-dev xclip qsampler curl lingot python3-tk python3-pip python3-venv libsndfile1-dev unzip libcairo2-dev libx11-dev lv2-dev libjack-jackd2-dev portaudio19-dev lsp-plugins-lv2 libc6-dev x11proto-dev guitarix-lv2 dotnet-sdk-10.0 python-is-python3 libfftw3-dev cmake
 
 # TODO: Not working on ubuntu studio at the moment
-sudo apt-get install liblilv-static infamous-plugins cardinal cardinal-vst3 wolf-shaper surge-xt helm sfizz 
+sudo apt-get install liblilv-static infamous-plugins cardinal cardinal-vst3 surge-xt helm sfizz 
+
+git clone --recursive https://github.com/wolf-plugins/wolf-shaper.git
+cd wolf-shaper
+BUILD_VST2=true BUILD_VST3=true BUILD_CLAP=true BUILD_LV2=true BUILD_DSSI=true BUILD_JACK=true make
+
+cd ~/build
 
 wget https://github.com/DamRsn/NeuralNote/releases/download/v1.1.0/NeuralNote_VST3_Linux.zip
 sudo unzip NeuralNote_VST3_Linux.zip -d ~/build/NeuralNote
@@ -46,6 +47,9 @@ git clone https://github.com/rominator1983/noClipDrive.lv2.git
 git clone https://github.com/rominator1983/justOneOctaveUp.lv2.git
 git clone https://github.com/rominator1983/rectifyingOctave.lv2.git
 git clone https://github.com/rominator1983/splineDrive.lv2.git
+
+cd ~/build/carlaController
+dotnet build
 
 cd ~/build/noClipDrive.lv2
 ./waf configure
@@ -101,39 +105,44 @@ mkdir ~/build/bolliedelayxt
 sudo unzip bolliedelayxt.lv2.zip -d ~/build/bolliedelayxt
 sudo cp -rf ~/build/bolliedelayxt/bolliedelayxt.lv2 /usr/lib/lv2/
 
-# ratatouille
+# ratatouille and others
 
 cd ~/build
-git clone https://github.com/brummer10/Ratatouille.lv2.git --recursive
+git clone https://github.com/brummer10/Ratatouille.lv2.git --recurse-submodules
 cd ~/build/Ratatouille.lv2/
 make lv2
 make vst2
 sudo make install
 
-# TODO: NAM and it's GUI!
+cd ~/build
+git clone https://github.com/mikeoliphant/neural-amp-modeler-lv2.git --recurse-submodules
+cd ~/build/neural-amp-modeler-lv2
+cmake . -DCMAKE_BUILD_TYPE="Release"
+make -j4
+sudo make install
+
+cd ~/build
+git clone https://github.com/brummer10/neural-amp-modeler-ui.git --recurse-submodules
+make
+sudo make install
+
 cd ~/build
 git clone https://github.com/brummer10/Staircase.git --recurse-submodules
 cd Staircase
 make
 sudo make install
 
-# TODO: CMake < 3.5 not supported any more.
 cd ~/build
-git clone https://github.com/ssj71/rkrlv2.git --recursive
+git clone https://github.com/rominator1983/rkrlv2.git --recurse-submodules
 cd ~/build/rkrlv2/
-mkdir build
 cd build
 cmake ..
-# TODO: now adapt.
-#   add -I/usr/include/lv2/core to ~/build/rkrlv2/build/lv2/CMakeFiles/rkrlv2.dir/flags.make
-#   change <lv2/lv2plug.in/ns/ext/ to <lv2/ in ~/build/rkrlv2/lv2/rkrlv2.C
-cd ..
 make
 sudo make install
 
-
 # VS code
-# wget https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64
+wget https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64
+sudo apt install ./code*.deb
 
 # all brummer => should be installed via gxplugins from apt repository. check for baja tube driver, slow gear etc. on next installation
 #cd ~/build
