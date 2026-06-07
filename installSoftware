@@ -9,7 +9,9 @@
 sudo snap install audacity
 sudo audacity.fetch-models --batch
 
-mkicr ~/build
+sudo snap install code
+
+mkdir ~/build
 cd ~/build
 
 # TODO: not working on resolute at the moment
@@ -21,7 +23,7 @@ sudo dpkg -i kxstudio-repos_11.2.0_all.deb
 
 sudo apt-get update && sudo apt-get upgrade
 
-sudo apt-get install jalv lilv-utils binutils automake autoconf libtool libreadline-dev xclip qsampler curl lingot python3-tk python3-pip python3-venv libsndfile1-dev unzip libcairo2-dev libx11-dev lv2-dev libjack-jackd2-dev portaudio19-dev lsp-plugins-lv2 libc6-dev x11proto-dev guitarix-lv2 dotnet-sdk-10.0
+sudo apt-get install jalv lilv-utils binutils automake autoconf libtool libreadline-dev xclip qsampler curl lingot python3-tk python3-pip python3-venv libsndfile1-dev unzip libcairo2-dev libx11-dev lv2-dev libjack-jackd2-dev portaudio19-dev lsp-plugins-lv2 libc6-dev x11proto-dev guitarix-lv2 dotnet-sdk-10.0 python-is-python3 libfftw3-dev cmake
 
 # TODO: Not working on ubuntu studio at the moment
 sudo apt-get install liblilv-static infamous-plugins cardinal cardinal-vst3 wolf-shaper surge-xt helm sfizz 
@@ -33,7 +35,7 @@ sudo cp -rf /home/roman/build/NeuralNote/NeuralNote.vst3/ /usr/lib/vst3/
 wget https://github.com/geraldmwangi/GuitarMidi-LV2/releases/download/v1.6/guitarmidi-lv2_1.6.1_amd64.deb
 sudo dpkg -i guitarmidi-lv2_1.6.1_amd64.deb
 
-https://github.com/surge-synthesizer/monique-monosynth/releases/download/Nightly/MoniqueMonosynth-2024-08-07-df7d339-Linux.zip
+wget https://github.com/surge-synthesizer/monique-monosynth/releases/download/Nightly/MoniqueMonosynth-2024-08-07-df7d339-Linux.zip
 sudo unzip MoniqueMonosynth-2024-08-07-df7d339-Linux.zip -d ~/build/MoniqueMonosynth
 sudo cp -rf ~/build/MoniqueMonosynth/monique_products/MoniqueMonosynth.vst3/ /usr/lib/vst3/
 
@@ -92,6 +94,8 @@ cd ~/build
 wget https://patchstorage.com/wp-content/uploads/2023/02/bolliedelay-63ef73a5b8a80.lv2.tar.gz
 sudo tar -xzf bolliedelay-63ef73a5b8a80.lv2.tar.gz -C /usr/lib/lv2
 
+# TODO: Not working any more
+cd ~/build
 wget https://islainstruments.com/files/plugins/bolliedelayxt.lv2.zip
 mkdir ~/build/bolliedelayxt
 sudo unzip bolliedelayxt.lv2.zip -d ~/build/bolliedelayxt
@@ -106,11 +110,14 @@ make lv2
 make vst2
 sudo make install
 
+# TODO: NAM and it's GUI!
+cd ~/build
 git clone https://github.com/brummer10/Staircase.git --recurse-submodules
 cd Staircase
 make
-make install
+sudo make install
 
+# TODO: CMake < 3.5 not supported any more.
 cd ~/build
 git clone https://github.com/ssj71/rkrlv2.git --recursive
 cd ~/build/rkrlv2/
@@ -120,6 +127,7 @@ cmake ..
 # TODO: now adapt.
 #   add -I/usr/include/lv2/core to ~/build/rkrlv2/build/lv2/CMakeFiles/rkrlv2.dir/flags.make
 #   change <lv2/lv2plug.in/ns/ext/ to <lv2/ in ~/build/rkrlv2/lv2/rkrlv2.C
+cd ..
 make
 sudo make install
 
