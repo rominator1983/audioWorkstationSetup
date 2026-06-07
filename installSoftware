@@ -98,15 +98,13 @@ cd ~/build
 wget https://patchstorage.com/wp-content/uploads/2023/02/bolliedelay-63ef73a5b8a80.lv2.tar.gz
 sudo tar -xzf bolliedelay-63ef73a5b8a80.lv2.tar.gz -C /usr/lib/lv2
 
-# TODO: Not working any more
 cd ~/build
-wget https://islainstruments.com/files/plugins/bolliedelayxt.lv2.zip
-mkdir ~/build/bolliedelayxt
-sudo unzip bolliedelayxt.lv2.zip -d ~/build/bolliedelayxt
-sudo cp -rf ~/build/bolliedelayxt/bolliedelayxt.lv2 /usr/lib/lv2/
+git clone https://github.com/MrBollie/bolliedelayxt.lv2.git --recurse-submodules
+cd bolliedelayxt.lv2
+make
+sudo make install
 
 # ratatouille and others
-
 cd ~/build
 git clone https://github.com/brummer10/Ratatouille.lv2.git --recurse-submodules
 cd ~/build/Ratatouille.lv2/
