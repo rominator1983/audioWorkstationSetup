@@ -18,7 +18,7 @@ sudo dpkg -i kxstudio-repos_11.2.0_all.deb
 
 sudo apt-get update && sudo apt-get upgrade
 
-sudo apt-get install jalv lilv-utils binutils automake autoconf libtool libreadline-dev xclip qsampler curl lingot python3-tk python3-pip python3-venv libsndfile1-dev unzip libcairo2-dev libx11-dev lv2-dev libjack-jackd2-dev portaudio19-dev lsp-plugins-lv2 libc6-dev x11proto-dev guitarix-lv2 dotnet-sdk-10.0 python-is-python3 libfftw3-dev cmake
+sudo apt-get install jalv lilv-utils binutils automake autoconf libtool libreadline-dev xclip qsampler curl lingot python3-tk python3-pip python3-venv libsndfile1-dev unzip libcairo2-dev libx11-dev lv2-dev libjack-jackd2-dev portaudio19-dev lsp-plugins-lv2 libc6-dev x11proto-dev guitarix-lv2 dotnet-sdk-10.0 python-is-python3 libfftw3-dev cmake libsamplerate0-dev
 
 # TODO: Not working on ubuntu studio at the moment
 sudo apt-get install liblilv-static infamous-plugins cardinal cardinal-vst3 surge-xt helm sfizz 
@@ -142,6 +142,7 @@ make
 sudo make install
 
 # VS code
+cd ~/build
 wget https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64
 sudo apt install ./code*.deb
 
