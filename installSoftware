@@ -143,8 +143,8 @@ sudo make install
 
 # VS code
 cd ~/build
-wget https://go.microsoft.com/fwlink/?LinkID=760868
-sudo apt install ./code*.deb
+wget https://go.microsoft.com/fwlink/?LinkID=760868 -O code.deb
+sudo apt install ./code.deb
 
 # all brummer => should be installed via gxplugins from apt repository. check for baja tube driver, slow gear etc. on next installation
 #cd ~/build
