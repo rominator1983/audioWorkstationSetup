@@ -1,4 +1,4 @@
-#!/bin/bash
+e#!/bin/bash
 
 #- TODO:
 #- - switches um lautlos schalten zu können müssten auf patchstorage sein
@@ -20,8 +20,11 @@ sudo apt-get update && sudo apt-get upgrade
 
 sudo apt-get install jalv lilv-utils binutils automake autoconf libtool libreadline-dev xclip qsampler curl lingot python3-tk python3-pip python3-venv libsndfile1-dev unzip libcairo2-dev libx11-dev lv2-dev libjack-jackd2-dev portaudio19-dev lsp-plugins-lv2 libc6-dev x11proto-dev guitarix-lv2 dotnet-sdk-10.0 python-is-python3 libfftw3-dev cmake libsamplerate0-dev
 
+# from kxstudio
+sudo apt-get install liblilv-static infamous-plugins cardinal cardinal-vst3 helm 
+
 # TODO: Not working on ubuntu studio at the moment
-sudo apt-get install liblilv-static infamous-plugins cardinal cardinal-vst3 surge-xt helm sfizz 
+sudo apt-get install surge-xt sfizz 
 
 git clone --recursive https://github.com/wolf-plugins/wolf-shaper.git
 cd wolf-shaper
