@@ -26,6 +26,7 @@ sudo apt-get install liblilv-static infamous-plugins cardinal cardinal-vst3 surg
 git clone --recursive https://github.com/wolf-plugins/wolf-shaper.git
 cd wolf-shaper
 BUILD_VST2=true BUILD_VST3=true BUILD_CLAP=true BUILD_LV2=true BUILD_DSSI=true BUILD_JACK=true make
+cp -r bin/wolf-shaper.lv2 /usr/lib/lv2/
 
 cd ~/build
 
@@ -103,6 +104,7 @@ git clone https://github.com/MrBollie/bolliedelayxt.lv2.git --recurse-submodules
 cd bolliedelayxt.lv2
 make
 sudo make install
+mv /usr/local/lib/lv2/bolliedelayxt.lv2 /usr/lib/lv2/
 
 # ratatouille and others
 cd ~/build
@@ -121,6 +123,7 @@ sudo make install
 
 cd ~/build
 git clone https://github.com/brummer10/neural-amp-modeler-ui.git --recurse-submodules
+cd neural-amp-modeler-ui
 make
 sudo make install
 
