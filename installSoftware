@@ -4,7 +4,7 @@ e#!/bin/bash
 #- - switches um lautlos schalten zu können müssten auf patchstorage sein
 # TODO: Irgendwo alles safe ablegen NAM models, Reverbs etc.
 
-# TODO: Check how to get those on Ubuntu studio
+sudo apt-get remove audacity
 sudo snap install audacity
 sudo audacity.fetch-models --batch
 
