@@ -2,7 +2,7 @@ e#!/bin/bash
 
 #- TODO:
 #- - switches um lautlos schalten zu können müssten auf patchstorage sein
-# TODO: Irgendwo alles safe ablegen NAM models, Reverbs etc.
+# TODO: Irgendwo alles safe ablegen Reverbs etc.
 
 sudo apt-get remove audacity
 sudo snap install audacity
@@ -23,13 +23,18 @@ sudo apt-get install jalv lilv-utils binutils automake autoconf libtool libreadl
 # from kxstudio
 sudo apt-get install liblilv-static infamous-plugins cardinal cardinal-vst3 helm 
 
-# TODO: Not working on ubuntu studio at the moment
-sudo apt-get install surge-xt sfizz 
-
 git clone --recursive https://github.com/wolf-plugins/wolf-shaper.git
 cd wolf-shaper
 BUILD_VST2=true BUILD_VST3=true BUILD_CLAP=true BUILD_LV2=true BUILD_DSSI=true BUILD_JACK=true make
 cp -r bin/wolf-shaper.lv2 /usr/lib/lv2/
+
+cd ~/build
+wget https://ftp.gwdg.de/pub/opensuse/repositories/home%3A/sfztools%3A/sfizz/xUbuntu_24.04/amd64/sfizz_1.2.3-0_amd64.deb
+sudo dpkg -i sfizz_1.2.3-0_amd64.deb
+
+cd ~/build
+wget https://github.com/surge-synthesizer/releases-xt/releases/download/1.3.4/surge-xt-linux-x64-1.3.4.deb
+sudo dpkg -i surge-xt-linux-x64-1.3.4.deb
 
 cd ~/build
 
