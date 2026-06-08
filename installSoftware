@@ -182,3 +182,8 @@ sudo cp -rf ~/build/TAL-NoiseMaker/TAL-NoiseMaker/TAL-NoiseMaker.vst3/ /usr/lib/
 wget https://tal-software.com/downloads/plugins/TAL-Drum_64_linux.zip
 sudo unzip TAL-Drum_64_linux.zip -d ~/build/TAL-Drum
 sudo cp -rf ~/build/TAL-Drum/TAL-Drum/TAL-Drum.vst3/ /usr/lib/vst3/
+
+dotnet tool install -g git-credential-manager
+dotnet tool install --global
+git-credential-manager configure
+git config set --global --all credential.credentialStore gpg
