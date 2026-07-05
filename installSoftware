@@ -18,7 +18,7 @@ sudo dpkg -i kxstudio-repos_11.2.0_all.deb
 
 sudo apt-get update && sudo apt-get upgrade
 
-sudo apt-get install jalv lilv-utils binutils automake autoconf libtool libreadline-dev xclip qsampler curl lingot python3-tk python3-pip python3-venv libsndfile1-dev unzip libcairo2-dev libx11-dev lv2-dev libjack-jackd2-dev portaudio19-dev lsp-plugins-lv2 libc6-dev x11proto-dev guitarix-lv2 dotnet-sdk-10.0 python-is-python3 libfftw3-dev cmake libsamplerate0-dev lsp-plugins-vst3 libsndfile1-dev
+sudo apt-get install jalv lilv-utils binutils automake autoconf libtool libreadline-dev xclip qsampler curl lingot python3-tk python3-pip python3-venv libsndfile1-dev unzip libcairo2-dev libx11-dev lv2-dev libjack-jackd2-dev portaudio19-dev lsp-plugins-lv2 libc6-dev x11proto-dev guitarix-lv2 dotnet-sdk-10.0 python-is-python3 libfftw3-dev cmake libsamplerate0-dev lsp-plugins libsndfile1-dev
 
 # from kxstudio
 sudo apt-get install liblilv-static infamous-plugins cardinal cardinal-vst3 helm 
